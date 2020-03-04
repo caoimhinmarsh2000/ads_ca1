@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class ContinuousAssessment{
     static Scanner keyIn = new Scanner(System.in);
-    Queue que;
-    LinkedList list;
+    //Queue que;
+    //LinkedList list;
     public static void main(String[] args){  
         int choice = 0;
         do{
@@ -38,7 +38,7 @@ public class ContinuousAssessment{
     }
 
     static void stackMenu(){
-        Stack<Integer> stk = new Stack();
+        Stack<Integer> stk = new Stack<Integer>();
         Random rand = new Random();
         Object[] myArray;
         int choice = 0, number = 0;
@@ -87,9 +87,8 @@ public class ContinuousAssessment{
 
         }while(choice != 5);
     }
-    /*
     static void queueMenu(){
-        Queue<Integer> queue = new Queue();
+        Queue<Integer> queue = new Queue<Integer>();
         Random rand = new Random();
         Object [] myArray;
         int choice = 0, number = 0;
@@ -132,5 +131,4 @@ public class ContinuousAssessment{
             }
         }while(choice != 5);
     }
-    */
 }
