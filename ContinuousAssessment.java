@@ -51,7 +51,7 @@ public class ContinuousAssessment {
             choice = keyIn.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.print("Enter number to be added to the stack");
+                    System.out.print("Enter number to be added to the stack: ");
                     number = keyIn.nextInt();
                     stk.push(number);
                     System.out.println(number + " has been added to the stack");
@@ -61,12 +61,7 @@ public class ContinuousAssessment {
                     System.out.println(number + " has been removed from the stack");
                     break;
                 case 3:
-                    myArray = stk.toArray();
-                    number = 0;
-                    for (int i = 0; i < myArray.length; i++) {
-                        number++;
-                    }
-                    System.out.println("stack contains " + number + " elements");
+                    System.out.println("stack contains " + stk.size() + " elements");
                     break;
                 case 4:
                     myArray = stk.toArray();
