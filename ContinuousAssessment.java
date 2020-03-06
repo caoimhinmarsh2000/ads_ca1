@@ -2,11 +2,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.ListIterator;
 
 public class ContinuousAssessment {
     static Scanner keyIn = new Scanner(System.in);
-
-    // Queue que;
     public static void main(String[] args) {
         int choice = 0;
         do {
@@ -37,7 +36,7 @@ public class ContinuousAssessment {
     }
 
     static void stackMenu() {
-        Stack<Integer> stk = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<Integer>();
         Object[] myArray;
         int choice = 0, number = 0;
         do {
@@ -53,18 +52,18 @@ public class ContinuousAssessment {
                 case 1:
                     System.out.print("Enter number to be added to the stack: ");
                     number = keyIn.nextInt();
-                    stk.push(number);
+                    stack.push(number);
                     System.out.println(number + " has been added to the stack");
                     break;
                 case 2:
-                    number = stk.pop();
+                    number = stack.pop();
                     System.out.println(number + " has been removed from the stack");
                     break;
                 case 3:
-                    System.out.println("stack contains " + stk.size() + " elements");
+                    System.out.println("stack contains " + stack.size() + " elements");
                     break;
                 case 4:
-                    myArray = stk.toArray();
+                    myArray = srack.toArray();
                     System.out.println("stack contents : ");
                     for (Object o : myArray) {
                         System.out.println(o);
@@ -83,12 +82,16 @@ public class ContinuousAssessment {
     }
 
     static void listMenu() {
-        LinkedList list = new LinkedList<>();
-        Object[] myArray;
-        int choice = 0, number = 0, current = 0;
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        list.add(3);
+        list.add(6);
+        list.add(9);
+        ListIterator<Integer> listIter;
+        listIter = list.listIterator();
+        int choice = 0, number = 0;
         do {
 
-            System.out.println("Please select an Option from the following menu:");
+            System.out.println("\nPlease select an Option from the following menu:");
             System.out.println("1. Add element at the start of the Linked List");
             System.out.println("2. Add element at the end of the Linked List");
             System.out.println("3. Add element at the current position of the Linked List");
@@ -102,24 +105,66 @@ public class ContinuousAssessment {
             choice = keyIn.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.print("Enter number to be added to the start of the Linked List");
+                    System.out.print("Enter number to be added to the start of the Linked List : ");
                     number = keyIn.nextInt();
                     list.addFirst(number);
+                    listIter = list.listIterator();
                     break;
                 case 2:
-                    System.out.print("Enter number to be added to the end of the Linked List");
+                    System.out.print("Enter number to be added to the end of the Linked List : ");
                     number = keyIn.nextInt();
-                    list.addLast(number);
+                    list.add(number);
+                    listIter = list.listIterator();
                     break;
                 case 3:
-                    System.out.print("Enter number to be added to the end of the Linked List");
+                    System.out.print("Enter number to be added to the current position of the Linked List : ");
                     number = keyIn.nextInt();
-                    list.addLast(number);
+                    listIter.add(number);
+                    break;
+                case 4:
+                    list.removeFirst();
+                    listIter = list.listIterator();
+                    System.out.println("Element has been removed from start of the Linked List");
+                    break;
+                case 5:
+                    list.removeLast();
+                    listIter = list.listIterator();
+                    System.out.println("Element has been removed from end of the Linked List");
+                    break;
+                case 6:
+                    listIter.next();
+                    if(list.size() >= 1){
+                        listIter.remove();
+                        System.out.println("Element has been removed from current postion in the Linked List");
+                    }else{
+                        System.out.println("Linked List size is 0 - cannot remove any other elements");
+                    }
+                    break;
+                case 7:
+                    System.out.println("Linked List currently contains [" +list.size() +"] elements");
+                    break;
+                case 8:
+                    listIter = list.listIterator();
+                    System.out.print("Linked List contents: \n [");
+                    while(listIter.hasNext()){
+                        System.out.print(listIter.next() +", ");
+                    }
+                    System.out.println("]");
+                    break;
+                case 9:
+                    listIter = list.listIterator(list.size());
+                    System.out.print("Linked List contents (in reverse): \n [");
+                    while(listIter.hasPrevious()){
+                        System.out.print(listIter.previous() +", ");
+                    }
+                    System.out.println("]");
+                    break;
+                case 10:
                     break;
                 default:
                     System.out.println("invalid option selected");
                     break;
             }
-        } while (choice != 5);
+        } while (choice != 10);
     }
 }
