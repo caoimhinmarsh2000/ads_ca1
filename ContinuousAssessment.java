@@ -21,7 +21,7 @@ public class ContinuousAssessment {
                     stackMenu();
                     break;
                 case 2:
-                    // queueMenu();
+                    queueMenu();
                     break;
                 case 3:
                     listMenu();
@@ -37,6 +37,52 @@ public class ContinuousAssessment {
 
     static void stackMenu() {
         Stack<Integer> stack = new Stack<Integer>();
+        Object[] myArray;
+        int choice = 0, number = 0;
+        do {
+
+            System.out.println("Please select an Option from the following menu:");
+            System.out.println("1. Add element to the Stack");
+            System.out.println("2. Remove an element from the Stack");
+            System.out.println("3. Display the size of the Stack");
+            System.out.println("4. Display the contents of the Stack");
+            System.out.println("5. Return to main menu");
+            choice = keyIn.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter number to be added to the stack: ");
+                    number = keyIn.nextInt();
+                    stack.push(number);
+                    System.out.println(number + " has been added to the stack");
+                    break;
+                case 2:
+                    number = stack.pop();
+                    System.out.println(number + " has been removed from the stack");
+                    break;
+                case 3:
+                    System.out.println("stack contains " + stack.size() + " elements");
+                    break;
+                case 4:
+                    myArray = srack.toArray();
+                    System.out.println("stack contents : ");
+                    for (Object o : myArray) {
+                        System.out.println(o);
+                    }
+                    System.out.println(" - - - - - - - ");
+                    break;
+                case 5:
+                    System.out.println("returning to main menu");
+                    break;
+                default:
+                    System.out.println("invalid option selected");
+                    break;
+            }
+
+        } while (choice != 5);
+    }
+
+    static void queueMenu() {
+        Queue<Integer> stack = new LinkedList<Integer>();
         Object[] myArray;
         int choice = 0, number = 0;
         do {
